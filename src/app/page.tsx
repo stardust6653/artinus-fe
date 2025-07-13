@@ -1,23 +1,48 @@
 "use client";
 
 import CardList from "@/components/pages/home/CardList";
-import useGetDummyJsonData from "@/hooks/useGetDummyJsonData";
-import { useState } from "react";
+import { useInfiniteProducts } from "@/hooks/useInfiniteProducts";
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import styles from "./page.module.css";
 import Section from "@/components/common/Section";
+import LoadingSpinner from "@/components/common/LoadingSpinner/LoadingSpinner";
 
 export default function Home() {
-  const [page, setPage] = useState(1);
-  const { data, loading } = useGetDummyJsonData(page);
+  const { products, loading, hasMore, loadMore } = useInfiniteProducts();
 
-  console.log(data);
+  const { loadMoreRef } = useInfiniteScroll({
+    loading,
+    hasMore,
+    onLoadMore: loadMore,
+  });
 
-  if (loading) return <div>Loading...</div>;
+  if (!products.length && loading) {
+    return (
+      <div className={styles.initialLoading}>
+        <LoadingSpinner text="상품을 불러오는 중..." size="large" />
+      </div>
+    );
+  }
 
   return (
     <main className={styles.main}>
-      <Section title="상품 목록">
-        <CardList data={data?.products} />
+      <Section title={`상품 목록`}>
+        <CardList data={products} />
+
+        {/* 무한스크롤 트리거 */}
+        <div ref={loadMoreRef} className={styles.loadMore}>
+          {loading && (
+            <LoadingSpinner
+              text="더 많은 상품을 불러오는 중..."
+              size="medium"
+            />
+          )}
+          {!hasMore && !loading && (
+            <div className={styles.endMessage}>
+              <p>모든 상품을 불러왔습니다</p>
+            </div>
+          )}
+        </div>
       </Section>
     </main>
   );

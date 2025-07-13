@@ -1,0 +1,48 @@
+import { useEffect, useRef, useCallback } from "react";
+
+interface UseInfiniteScrollProps {
+  loading: boolean;
+  hasMore: boolean;
+  onLoadMore: () => void;
+  threshold?: number;
+}
+
+export function useInfiniteScroll({
+  loading,
+  hasMore,
+  onLoadMore,
+  threshold = 1.0,
+}: UseInfiniteScrollProps) {
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+  const handleObserver = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      const [target] = entries;
+      if (target.isIntersecting && !loading && hasMore) {
+        onLoadMore();
+      }
+    },
+    [loading, hasMore, onLoadMore]
+  );
+
+  useEffect(() => {
+    const element = loadMoreRef.current;
+    if (!element) return;
+
+    observerRef.current = new IntersectionObserver(handleObserver, {
+      threshold,
+      rootMargin: "100px", // 100px 전에 미리 로드
+    });
+
+    observerRef.current.observe(element);
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [handleObserver, threshold]);
+
+  return { loadMoreRef };
+}

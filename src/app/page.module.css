@@ -1,5 +1,34 @@
 .main {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.initialLoading {
+  display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+}
+
+.loadMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  margin-top: 20px;
+}
+
+.endMessage {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.endMessage p {
+  color: var(--gray-dark);
+  font-size: 16px;
+  margin: 50px;
+  font-weight: 500;
 }
