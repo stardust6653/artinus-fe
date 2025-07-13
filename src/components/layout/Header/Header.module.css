@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  .title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-light);
+    height: 60px;
+    font-family: var(--font-playfair), serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+
+    .dot {
+      position: absolute;
+      top: 15px;
+      right: -10px;
+      width: 10px;
+      height: 10px;
+      background-color: var(--secondary);
+      border-radius: 50%;
+    }
+  }
+}
