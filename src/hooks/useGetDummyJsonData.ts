@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "@/utils/fetch";
+import { ProductResponseType } from "@/types/product";
 
 const useGetDummyJsonData = (page = 1) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<ProductResponseType | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
