@@ -4,10 +4,12 @@ import styles from "./ProductDetailPage.module.css";
 import { useParams } from "next/navigation";
 import useGetDetailData from "@/hooks/useGetDetailData";
 import LoadingSpinner from "@/components/common/LoadingSpinner/LoadingSpinner";
+import ProductImage from "@/components/pages/productDetail/ProductImage";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const { data, loading } = useGetDetailData(id as string);
+
   console.log(data);
 
   if (loading) {
@@ -19,7 +21,11 @@ const ProductDetailPage = () => {
   }
   return (
     <main className={styles.productDetailPageWrapper}>
-      <div className={styles.productDetailPage}>123</div>
+      <div className={styles.productDetailPage}>
+        <div className={styles.productInfoContainer}>
+          <ProductImage data={data} />
+        </div>
+      </div>
     </main>
   );
 };
