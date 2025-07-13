@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { fetchData } from "@/utils/fetch";
+import { ProductType } from "@/types/product";
 
 const useGetDetailData = (id: string) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
