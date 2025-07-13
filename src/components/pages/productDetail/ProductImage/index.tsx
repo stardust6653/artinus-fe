@@ -1,7 +1,7 @@
 import { ProductType } from "@/types/product";
 import Image from "next/image";
 import styles from "./ProductImage.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface ProductImageProps {
   data: ProductType | null;
@@ -9,6 +9,15 @@ interface ProductImageProps {
 
 const ProductImage = ({ data }: ProductImageProps) => {
   const [selectedImage, setSelectedImage] = useState(0);
+
+  useEffect(() => {
+    if (data?.images) {
+      data.images.forEach((src) => {
+        const img = document.createElement("img");
+        img.src = src;
+      });
+    }
+  }, [data?.images]);
 
   const handleImageClick = (index: number) => {
     setSelectedImage(index);
@@ -22,6 +31,8 @@ const ProductImage = ({ data }: ProductImageProps) => {
         width={500}
         height={500}
         className={styles.productImage}
+        priority
+        loading="eager"
       />
 
       <div className={styles.imageList}>
@@ -34,6 +45,8 @@ const ProductImage = ({ data }: ProductImageProps) => {
             height={80}
             className={styles.image}
             onClick={() => handleImageClick(index)}
+            priority={index < 4}
+            loading="eager"
           />
         ))}
       </div>
