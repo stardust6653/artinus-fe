@@ -133,6 +133,23 @@ a {
   color: inherit;
 }
 
+/* 페이지 레이아웃 - Footer를 항상 아래에 위치 */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 메인 콘텐츠가 남은 공간을 모두 차지하도록 */
+main {
+  flex: 1;
+}
+
 /* 쇼핑몰 색상 변수 */
 :root {
   --primary: #2c2443;
