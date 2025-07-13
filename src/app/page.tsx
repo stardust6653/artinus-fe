@@ -16,6 +16,10 @@ export default function Home() {
     onLoadMore: loadMore,
   });
 
+  const handleTopButtonClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   if (!products.length && loading) {
     return (
       <div className={styles.initialLoading}>
@@ -44,6 +48,14 @@ export default function Home() {
           )}
         </div>
       </Section>
+
+      <button
+        aria-label="맨 위로 이동"
+        className={styles.topButton}
+        onClick={handleTopButtonClick}
+      >
+        🔝
+      </button>
     </main>
   );
 }
