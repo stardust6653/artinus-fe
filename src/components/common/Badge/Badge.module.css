@@ -1,0 +1,52 @@
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 4px 6px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+/* In Stock - 초록색 */
+.inStock {
+  color: var(--stock-in);
+  background-color: var(--stock-in-bg);
+  border-color: var(--stock-in);
+}
+
+.inStock::before {
+  content: "●";
+  margin-right: 4px;
+  color: var(--stock-in);
+}
+
+/* Low Stock - 주황색 */
+.lowStock {
+  color: var(--stock-low);
+  background-color: var(--stock-low-bg);
+  border-color: var(--stock-low);
+}
+
+.lowStock::before {
+  content: "⚠";
+  margin-right: 4px;
+  color: var(--stock-low);
+}
+
+/* Out of Stock - 빨간색 */
+.outOfStock {
+  color: var(--stock-out);
+  background-color: var(--stock-out-bg);
+  border-color: var(--stock-out);
+}
+
+.outOfStock::before {
+  content: "✕";
+  margin-right: 4px;
+  color: var(--stock-out);
+}
+
+.category {
+  color: var(--gray-dark);
+  background-color: var(--secondary);
+}
