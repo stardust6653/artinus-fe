@@ -27,6 +27,7 @@ export interface ProductType {
   minimumOrderQuantity: number;
   meta: ProductMetaType;
   images: ProductImageType;
+  thumbnail: string;
 }
 
 export type ProductTagType = string[];
