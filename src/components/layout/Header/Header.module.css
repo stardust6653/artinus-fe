@@ -4,16 +4,17 @@
   justify-content: center;
   align-items: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-bottom: 1px solid var(--gray-light);
 
   .titleContainer {
     width: 100%;
-    border-bottom: 1px solid var(--gray-light);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .title {
+    width: 100%;
     padding: 10px 0 15px;
     font-family: var(--font-playfair), serif;
     position: relative;
