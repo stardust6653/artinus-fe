@@ -1,0 +1,101 @@
+.productInformationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .badgeList {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .brand {
+    color: var(--gray);
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .descriptionContainer {
+    .descriptionTitle {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .description {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  .buyContainer {
+    .priceContainer {
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+
+      .originalPrice {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--gray);
+        text-decoration: line-through;
+      }
+      .discountPrice {
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--black);
+
+        .discountPercentage {
+          font-size: 24px;
+          color: var(--error);
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .buttonContainer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+      button {
+        border-radius: 8px;
+        height: 48px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+      }
+      .shareButton {
+        background-color: var(--error);
+        color: var(--white);
+      }
+      .buyButton {
+        background-color: var(--success);
+        color: var(--white);
+      }
+      .soldOutButton {
+        background-color: var(--gray);
+        color: var(--white);
+      }
+    }
+
+    .tagList {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+      .tag {
+        font-size: 14px;
+        color: var(--gray);
+        border: 1px solid var(--gray-light);
+        padding: 4px 8px;
+        border-radius: 8px;
+      }
+    }
+  }
+}

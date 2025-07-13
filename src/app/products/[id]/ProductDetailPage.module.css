@@ -5,6 +5,11 @@
   align-items: center;
   .productDetailPage {
     width: 1024px;
+
+    .productInfoContainer {
+      display: flex;
+      gap: 40px;
+    }
   }
 }
 .initialLoading {

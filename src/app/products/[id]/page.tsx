@@ -5,12 +5,11 @@ import { useParams } from "next/navigation";
 import useGetDetailData from "@/hooks/useGetDetailData";
 import LoadingSpinner from "@/components/common/LoadingSpinner/LoadingSpinner";
 import ProductImage from "@/components/pages/productDetail/ProductImage";
+import ProductInformation from "@/components/pages/productDetail/ProductInformation";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const { data, loading } = useGetDetailData(id as string);
-
-  console.log(data);
 
   if (loading) {
     return (
@@ -24,6 +23,7 @@ const ProductDetailPage = () => {
       <div className={styles.productDetailPage}>
         <div className={styles.productInfoContainer}>
           <ProductImage data={data} />
+          <ProductInformation data={data} />
         </div>
       </div>
     </main>
