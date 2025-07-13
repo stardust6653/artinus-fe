@@ -14,13 +14,21 @@ const Card = ({ data }: CardProps) => {
 
   return (
     <li className={styles.card} key={data.id}>
-      <Image
-        src={data.thumbnail}
-        alt={data.title}
-        width={241}
-        height={241}
-        className={styles.thumbnail}
-      />
+      <div className={styles.thumbnailContainer}>
+        <Image
+          src={data.thumbnail}
+          alt={data.title}
+          width={241}
+          height={241}
+          className={styles.thumbnail}
+        />
+
+        {data?.availabilityStatus === "Out of Stock" && (
+          <div className={styles.soldOut}>
+            <p>Sold Out</p>
+          </div>
+        )}
+      </div>
       <div className={styles.badgeList}>
         <Badge status={data?.availabilityStatus} />
         <Badge status={data?.category} />
