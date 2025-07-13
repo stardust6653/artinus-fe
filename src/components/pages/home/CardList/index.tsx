@@ -3,10 +3,12 @@ import styles from "./CardList.module.css";
 import Card from "../Card";
 
 interface CardListProps {
-  data: ProductType[];
+  data: ProductType[] | undefined;
 }
 
 const CardList = ({ data }: CardListProps) => {
+  if (!data) return <div>상품이 없습니다.</div>;
+
   return (
     <ul className={styles.cardList}>
       {data?.map((item) => {
