@@ -1,3 +1,10 @@
+export interface ProductResponseType {
+  products: ProductType[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
 export interface ProductType {
   id: number;
   title: string;
