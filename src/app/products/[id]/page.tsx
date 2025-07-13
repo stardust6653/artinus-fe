@@ -6,6 +6,7 @@ import useGetDetailData from "@/hooks/useGetDetailData";
 import LoadingSpinner from "@/components/common/LoadingSpinner/LoadingSpinner";
 import ProductImage from "@/components/pages/productDetail/ProductImage";
 import ProductInformation from "@/components/pages/productDetail/ProductInformation";
+import ReviewList from "@/components/pages/productDetail/ReviewList";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -25,6 +26,8 @@ const ProductDetailPage = () => {
           <ProductImage data={data} />
           <ProductInformation data={data} />
         </div>
+
+        <ReviewList data={data} />
       </div>
     </main>
   );

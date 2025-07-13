@@ -1,0 +1,52 @@
+.reviewList {
+  .reviewListTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .reviewListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .reviewItem {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid var(--gray);
+      border-radius: 16px;
+      padding-bottom: 12px;
+      .reviewItemHeader {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        .reviewItemReviewerName {
+          font-size: 14px;
+          font-weight: 400;
+        }
+        .reviewItemRating {
+          font-weight: 700;
+          font-size: 16px;
+          color: var(--primary);
+          .star {
+            &:last-child {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+      .reviewItemComment {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+      .reviewItemDate {
+        font-size: 14px;
+        text-align: right;
+        color: var(--gray);
+      }
+    }
+  }
+}
