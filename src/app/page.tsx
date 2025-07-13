@@ -4,6 +4,7 @@ import CardList from "@/components/pages/home/CardList";
 import useGetDummyJsonData from "@/hooks/useGetDummyJsonData";
 import { useState } from "react";
 import styles from "./page.module.css";
+import Section from "@/components/common/Section";
 
 export default function Home() {
   const [page, setPage] = useState(1);
@@ -15,7 +16,9 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <CardList data={data?.products} />
+      <Section title="상품 목록">
+        <CardList data={data?.products} />
+      </Section>
     </main>
   );
 }
