@@ -10,9 +10,11 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>
-        <span>Artinus Shop</span>
-        <span className={styles.dot} />
+      <h1 className={styles.titleContainer}>
+        <div className={styles.title}>
+          <span>Artinus Shop</span>
+          <span className={styles.dot} />
+        </div>
       </h1>
       {isHome && <Banner />}
     </header>

@@ -5,19 +5,21 @@
   align-items: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-  .title {
+  .titleContainer {
     width: 100%;
-    position: relative;
+    border-bottom: 1px solid var(--gray-light);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid var(--gray-light);
-    height: 60px;
+  }
+
+  .title {
+    padding: 10px 0 15px;
     font-family: var(--font-playfair), serif;
+    position: relative;
     font-size: 36px;
     font-weight: 700;
     color: var(--primary);
-    letter-spacing: -0.5px;
 
     .dot {
       position: absolute;
