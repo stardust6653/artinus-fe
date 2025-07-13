@@ -73,6 +73,14 @@ const nextConfig: NextConfig = {
 
   // 6. 웹팩 설정
   webpack: (config, { dev, isServer }) => {
+    // 개발 환경에서 HMR 최적화
+    if (dev && !isServer) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      };
+    }
+
     // 프로덕션 환경에서 번들 크기 최적화
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
@@ -102,6 +110,13 @@ const nextConfig: NextConfig = {
   // 8. 개발 환경 설정
   swcMinify: true,
   poweredByHeader: false,
+
+  // 9. HMR 안정성 설정
+  reactStrictMode: true,
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
 };
 
 export default withBundleAnalyzer({
