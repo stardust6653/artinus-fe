@@ -61,12 +61,14 @@ const nextConfig: NextConfig = {
   // 5. 번들 최적화
   experimental: {
     optimizePackageImports: ["axios"],
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
+  },
+
+  // Turbopack 설정 (Next.js 15에서 안정화됨)
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
     },
   },
@@ -108,7 +110,6 @@ const nextConfig: NextConfig = {
   output: "standalone",
 
   // 8. 개발 환경 설정
-  swcMinify: true,
   poweredByHeader: false,
 
   // 9. HMR 안정성 설정
