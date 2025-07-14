@@ -50,3 +50,9 @@
   color: var(--gray-dark);
   background-color: var(--secondary);
 }
+
+@media screen and (max-width: 768px) {
+  .badge {
+    font-size: 10px;
+  }
+}

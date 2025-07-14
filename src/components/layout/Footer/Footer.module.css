@@ -30,3 +30,21 @@
     }
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .footer {
+    .footerContainer {
+      width: 720px;
+      padding: 20px 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    .footerContainer {
+      width: 100%;
+      padding: 20px 20px;
+    }
+  }
+}

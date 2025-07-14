@@ -20,8 +20,8 @@ const Card = ({ data }: CardProps) => {
           <Image
             src={data.thumbnail}
             alt={data.title}
-            width={241}
-            height={241}
+            width={350}
+            height={350}
             className={styles.thumbnail}
           />
 
@@ -35,7 +35,7 @@ const Card = ({ data }: CardProps) => {
           <Badge status={data?.availabilityStatus} />
           <Badge status={data?.category} />
         </div>
-        <span className={styles.brand}>{data.brand}</span>
+        <span className={styles.brand}>{data.brand ?? "Unknown"}</span>
         <h3 className={styles.title}>{data.title}</h3>
         <div className={styles.priceList}>
           <p className={styles.originalPrice}>

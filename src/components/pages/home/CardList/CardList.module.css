@@ -5,3 +5,19 @@
   gap: 20px;
   row-gap: 40px;
 }
+
+@media screen and (max-width: 1240px) {
+  .cardList {
+    width: 720px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cardList {
+    width: 100%;
+    gap: 16px;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+}

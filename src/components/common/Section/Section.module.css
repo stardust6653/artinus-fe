@@ -8,3 +8,14 @@
     margin-bottom: 40px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .section {
+    h2 {
+      padding: 0 20px;
+      font-size: 20px;
+      padding-bottom: 8px;
+      margin-bottom: 32px;
+    }
+  }
+}
