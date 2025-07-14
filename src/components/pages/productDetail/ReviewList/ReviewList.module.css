@@ -50,3 +50,11 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .reviewList {
+    .reviewListTitle {
+      font-size: 20px;
+    }
+  }
+}
