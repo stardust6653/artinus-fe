@@ -8,6 +8,15 @@ DummyJSON Products API를 활용하여 구현한 반응형 커머스 웹 애플�
 - **페이지 구성**: 상품 목록 페이지 + 상품 상세 페이지
 - **주요 기능**: 20개씩 스크롤 기반 Lazy Load, 로딩 UI, 빌드 최적화
 - **배포**: 정적 사이트 배포
+-
+
+## 배포 정보
+
+### **정적 사이트 URL**
+
+[알티너스 과제 배포](https://artinus-fe.vercel.app/)
+
+---
 
 ## 개발 환경
 
@@ -43,12 +52,10 @@ DummyJSON Products API를 활용하여 구현한 반응형 커머스 웹 애플�
 - **SEO 최적화**: 커머스 사이트의 특성상 검색 엔진 최적화가 필수
   - 서버사이드 렌더링으로 초기 로딩 속도 개선
   - 상품별 동적 메타데이터 생성 (title, description, og:image)
-  - 정적 사이트 생성으로 검색 엔진 친화적 구조
 - **성능 최적화 기능**:
   - Image 컴포넌트: 자동 WebP 변환, lazy loading
   - 코드 스플리팅: 번들 크기 최소화 (vendors/common chunk 분리)
   - Link 태그 prefetch: 페이지 전환 속도 향상
-  - Turbopack: 빠른 개발 환경 (1118ms 서버 시작)
 - **개발 생산성**: App Router, TypeScript 지원, 빌드 최적화 내장
 
 #### **CSS Modules 선택**
@@ -212,14 +219,6 @@ GET https://dummyjson.com/products/{id}
 
 1. **SEO 적용**: 동적 메타데이터, OG 이미지, JSON-LD
 2. **에러 처리**: 404 페이지, API 에러 핸들링
-
-## 배포 정보
-
-### **정적 사이트 URL**
-
-[알티너스 과제 배포](https://artinus-fe.vercel.app/)
-
----
 
 ## 기술적 고려사항
 
