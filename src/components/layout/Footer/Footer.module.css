@@ -3,6 +3,7 @@
   background-color: var(--primary);
 
   .footerContainer {
+    box-sizing: border-box;
     color: var(--white);
     width: 1024px;
     margin: 0 auto;
