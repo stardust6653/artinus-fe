@@ -21,3 +21,30 @@
   align-items: center;
   min-height: 100vh;
 }
+
+@media screen and (max-width: 1240px) {
+  .productDetailPageWrapper {
+    padding: 0 20px;
+
+    .productDetailPage {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .productDetailPageWrapper {
+    margin: 20px 0 100px;
+
+    .productDetailPage {
+      width: 100%;
+
+      .productInfoContainer {
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

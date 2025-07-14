@@ -25,6 +25,7 @@
       margin-bottom: 8px;
     }
     .description {
+      margin-bottom: 20px;
       font-size: 16px;
       line-height: 1.5;
     }
@@ -95,6 +96,52 @@
         border: 1px solid var(--gray-light);
         padding: 4px 8px;
         border-radius: 8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .productInformationContainer {
+    .title {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .brand {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .descriptionContainer {
+      .descriptionTitle {
+        font-size: 14px;
+      }
+      .description {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+    }
+    .buyContainer {
+      .priceContainer {
+        .originalPrice {
+          font-size: 16px;
+        }
+        .discountPrice {
+          font-size: 24px;
+          .discountPercentage {
+            font-size: 18px;
+          }
+        }
+      }
+      .buttonContainer {
+        button {
+          font-size: 15px;
+          height: 42px;
+        }
+      }
+      .tagList {
+        .tag {
+          font-size: 13px;
+        }
       }
     }
   }

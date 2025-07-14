@@ -23,3 +23,28 @@
     }
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .productImageContainer {
+    .productImage {
+      width: 350px;
+      height: 350px;
+    }
+
+    .imageList {
+      .image {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .productImageContainer {
+    .productImage {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
