@@ -2,6 +2,7 @@ import Badge from "@/components/common/Badge/Badge";
 import { ProductType } from "@/types/product";
 import styles from "./ProductInformation.module.css";
 import { calculatePriceInfo } from "@/utils/price";
+import { shareLink } from "@/utils/share";
 
 interface ProductInformationProps {
   data: ProductType | null;
@@ -14,27 +15,6 @@ const ProductInformation = ({ data }: ProductInformationProps) => {
       data?.discountPercentage as number
     );
 
-  const handleShare = async () => {
-    try {
-      if (navigator.clipboard) {
-        await navigator.clipboard.writeText(window.location.href);
-        alert("링크가 복사되었습니다.");
-      } else {
-        // 폴백: 텍스트 선택 방법
-        const textArea = document.createElement("textarea");
-        textArea.value = window.location.href;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
-        alert("링크가 복사되었습니다.");
-      }
-    } catch (error) {
-      console.error("클립보드 복사 실패:", error);
-      alert("링크 복사에 실패했습니다.");
-    }
-  };
-
   const handleBuy = () => {
     if (data?.availabilityStatus === "Out of Stock") {
       alert("품절된 상품입니다.");
@@ -42,6 +22,14 @@ const ProductInformation = ({ data }: ProductInformationProps) => {
     }
     alert("구매완료");
   };
+
+  const buyButtonStyle =
+    data?.availabilityStatus !== "Out of Stock"
+      ? styles.buyButton
+      : styles.soldOutButton;
+
+  const buyButtonText =
+    data?.availabilityStatus !== "Out of Stock" ? "구매하기" : "Sold Out";
 
   return (
     <div className={styles.productInformationContainer}>
@@ -74,20 +62,11 @@ const ProductInformation = ({ data }: ProductInformationProps) => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <button className={styles.shareButton} onClick={handleShare}>
+          <button className={styles.shareButton} onClick={shareLink}>
             공유하기
           </button>
-          <button
-            className={
-              data?.availabilityStatus !== "Out of Stock"
-                ? styles.buyButton
-                : styles.soldOutButton
-            }
-            onClick={handleBuy}
-          >
-            {data?.availabilityStatus !== "Out of Stock"
-              ? "구매하기"
-              : "Sold Out"}
+          <button className={buyButtonStyle} onClick={handleBuy}>
+            {buyButtonText}
           </button>
         </div>
 
