@@ -5,6 +5,7 @@ interface UseInfiniteScrollProps {
   hasMore: boolean;
   onLoadMore: () => void;
   threshold?: number;
+  rootMargin?: string;
 }
 
 export function useInfiniteScroll({
@@ -12,6 +13,7 @@ export function useInfiniteScroll({
   hasMore,
   onLoadMore,
   threshold = 1.0,
+  rootMargin = "100px",
 }: UseInfiniteScrollProps) {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
@@ -32,7 +34,7 @@ export function useInfiniteScroll({
 
     observerRef.current = new IntersectionObserver(handleObserver, {
       threshold,
-      rootMargin: "100px", // 100px 전에 미리 로드
+      rootMargin,
     });
 
     observerRef.current.observe(element);
@@ -42,7 +44,7 @@ export function useInfiniteScroll({
         observerRef.current.disconnect();
       }
     };
-  }, [handleObserver, threshold]);
+  }, [handleObserver, threshold, rootMargin]);
 
   return { loadMoreRef };
 }
