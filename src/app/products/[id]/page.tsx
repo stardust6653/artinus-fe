@@ -8,6 +8,7 @@ import LoadingSpinner from "@/components/common/LoadingSpinner/LoadingSpinner";
 import ProductImage from "@/components/pages/productDetail/ProductImage";
 import ProductInformation from "@/components/pages/productDetail/ProductInformation";
 import ReviewList from "@/components/pages/productDetail/ReviewList";
+import SEO from "@/components/common/SEO";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -26,16 +27,27 @@ const ProductDetailPage = () => {
     notFound();
   }
   return (
-    <main className={styles.productDetailPageWrapper}>
-      <div className={styles.productDetailPage}>
-        <div className={styles.productInfoContainer}>
-          <ProductImage data={data} />
-          <ProductInformation data={data} />
-        </div>
+    <>
+      <SEO
+        title={data?.title || "상품 상세"}
+        description={data?.description || "상품 상세 정보를 확인하세요"}
+        keywords={`${data?.brand || ""}, ${data?.category || ""}, ${
+          data?.tags?.join(", ") || ""
+        }`}
+        image={data?.thumbnail || "/og-image.jpg"}
+        url={`/products/${id}`}
+      />
+      <main className={styles.productDetailPageWrapper}>
+        <div className={styles.productDetailPage}>
+          <div className={styles.productInfoContainer}>
+            <ProductImage data={data} />
+            <ProductInformation data={data} />
+          </div>
 
-        <ReviewList data={data} />
-      </div>
-    </main>
+          <ReviewList data={data} />
+        </div>
+      </main>
+    </>
   );
 };
 
